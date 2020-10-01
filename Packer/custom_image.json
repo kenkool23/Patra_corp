@@ -4,16 +4,16 @@
       "access_key": "{{user `aws_access_key`}}",
       "ami_name": "packer-linux-aws-demo-{{timestamp}}",
       "instance_type": "t2.micro",
-      "region": "{{user `region`}}",
-      "secret_key": "{{user `AWS_SECRET_KEY`}}",
-      "source_ami": "ami-032930428bf1abbff",
+      "region": "us-east-1",
+      "secret_key": "{{user `aws_secret_key`}}",
+      "source_ami": "ami-0dba2cb6798deb6d8",
       "type": "amazon-ebs",
       "ssh_username": "ubuntu"
   }],
   "provisioners": [
     {
       "type": "ansible",
-      "playbook_file": "../ansible_code/installations.yaml"
+      "playbook_file": "../Ansible/installations.yaml"
     }
   ],
   "post-processors": [{
