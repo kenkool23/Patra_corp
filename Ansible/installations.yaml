@@ -1,0 +1,11 @@
+#Ansible Playbook to install Monitoring agent, Java and Tomcat Server
+---
+  - name: Install datadog agent
+    hosts: all
+
+  tasks:
+       - name: ensure apache is at the latest version
+         yum:
+           name: httpd
+           state: latest
+        
