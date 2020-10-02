@@ -1,4 +1,9 @@
 {
+  "variables" : {
+      "aws_access_key": "{{env `AWS_ACCESS_KEY`}}",
+      "aws_secret_key": "{{env `AWS_SECRET_KEY`}}"
+   },
+
   "builders": [
     {
       "access_key": "{{user `aws_access_key`}}",
@@ -13,7 +18,8 @@
   "provisioners": [
     {
       "type": "ansible",
-      "playbook_file": "../Ansible/installations.yaml"
+      "playbook_file": "../Ansible/installations.yaml",
+      "extra_arguments": ["--extra-vars", "ansible_python_interpreter=/usr/bin/python3"]
     }
   ],
   "post-processors": [{
@@ -21,5 +27,4 @@
          "output": "manifest.json",
          "strip_path": true
      }]
-
-  }
+ }
