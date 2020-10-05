@@ -20,6 +20,10 @@
       "type": "ansible",
       "playbook_file": "../Ansible/installations.yaml",
       "extra_arguments": ["--extra-vars", "ansible_python_interpreter=/usr/bin/python3"]
+    },
+    {
+      "type" : "shell",
+      "script" : "./tomcat_install.sh"
     }
   ],
   "post-processors": [{
