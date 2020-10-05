@@ -27,10 +27,13 @@
         name: ['vim', 'htop', 'tmux', 'screen', 'telnet', 'wget', 'curl', 'git']
         state: present
 
-    - name: Install Java
-      apt:
-        name: java-1.8.0-openjdk
-        state: present
+    - name: Install OpenJDK Java
+    become: yes
+    apt:
+      name: "{{ item }}"
+      state: present
+    with_items:
+      openjdk-8-jdk
 
     - name: Add tomcat group
       group:
