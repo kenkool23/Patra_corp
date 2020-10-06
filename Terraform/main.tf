@@ -1,6 +1,21 @@
+data "aws_ami" "dynamic" {                              #data block provide filters to dynamically obtain AMI from packer build.
+  executable_users = ["self"]
+  most_recent      = true
+  owners           = ["self"]
+
+  filter {
+    name   = "name"
+    values = ["packer-ami-*"]
+  }
+
+  filter {
+    name   = "root-device-type"
+    values = ["ebs"]
+  }
+}
 resource "aws_launch_template" "patra-corp" {
-  name_prefix   = "partra"
-  image_id      = "ami-032930428bf1abbff"       #input image ID from parker
+  name_prefix   = "patra"
+  image_id      = data.aws_ami.dynamic.id      #Dynamically obtain AMI ID from Packer build
   instance_type = "t2.micro"
 }
 resource "aws_autoscaling_group" "patra-AG" {
