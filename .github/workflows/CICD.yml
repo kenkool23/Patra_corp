@@ -1,9 +1,8 @@
 name: Building a Simple WebApp
 on:
   push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+    branches:
+      - master
 jobs:
   build:
     runs-on: ubuntu-latest
