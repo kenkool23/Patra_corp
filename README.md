@@ -5,6 +5,6 @@
    - Variable.json contains variables to be used by packer.
    - Tomcat_install.sh contains scripts to pre-install Tomcat server in the image that will host the web application. This script will be invoked by Packer.
 
-# The Terraform file contains codes that will build the infracture: 2 EC2 servers, ELB, Autoscaling Group. The AMI will be obtained from Packer build. Note that Packer AMI output will be used dynamically as input to the Terraform. Run <terraform apply> to deploy the infrastructure.
+# The Terraform file contains codes that will build the infracture:  EC2 servers (with simple scaling policy), ELB, Autoscaling Group. The image that will be used to launch this servers will be obtained from Packer built output. Note that Packer AMI output will be obtained dynamically as input to the Terraform. Run 'terraform apply' to deploy the infrastructure.
 # The Ansible file (Playbook) will be used by PACKER to deploy monitoring agents (Datadog) and other packages.
 # .github contains the CI/CD code the will trigger a build and deployment whenever there is any code change in the source code. Github action is used for CI/CD pipeline. 
