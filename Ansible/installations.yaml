@@ -1,4 +1,4 @@
-#Ansible Playbook to install Monitoring agent, Java and Tomcat Server
+#Ansible Playbook to install Monitoring agent, JDK and other depencies. This code will be used by Packer to build a custom image.
 ---
 - name: Deploy Tomcat and Datadog agent
   hosts: 'all'
