@@ -1,3 +1,5 @@
+#Deploying web Application to Tomcat Server.
+#Description:
 This is a simple java web application project that leverage on; Terraform, Packer, Maven, Tomcat Server, Datadog, Github action and AWS cloud provider to automate IaaC, Configuration manamgement and CI-CD pipeline.
 
 Packer Folder contains 'custom_image.json, variable.json and tomcat_install.sh', this will build a custom baked imaged that will be preconfigured with all applications except the source code. By running 'Packer build custom_image.json', the custom image will be generated and serves as imput to the Terraform template. The output AMI will be used by Terraform to launch EC2 servers on AWS. 
